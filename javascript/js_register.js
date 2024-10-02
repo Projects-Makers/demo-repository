@@ -1,4 +1,4 @@
-// Ładuje formularz rejestracji
+// Funkcja do ładowania formularza rejestracji
 function loadRegisterForm() {
     const tresc = document.getElementById('tresc');
     tresc.innerHTML = `
@@ -12,5 +12,5 @@ function loadRegisterForm() {
             <p style="text-align: center;"><a href="#" id="loginLinkBack">${translations[currentLanguage].login}</a></p>
         </div>
     `;
-    document.getElementById('loginLinkBack').addEventListener('click', loadLoginForm); // Obsługa kliknięcia w link logowania
+    document.getElementById('loginLinkBack').addEventListener('click', loadLoginForm);
 }
