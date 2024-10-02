@@ -1,21 +1,21 @@
-// Ustawia domyślny motyw na podstawie localStorage
+// Funkcja do ustawienia domyślnego motywu
 function setDefaultTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.classList.add(`${savedTheme}-theme`);
 }
 
-// Nasłuchuje zmiany motywu i języka
+// Nasłuchiwacze dla wyboru motywu
 document.addEventListener('change', function(event) {
     if (event.target.id === 'theme') {
         const newTheme = event.target.value;
         document.body.classList.toggle('light-theme', newTheme === 'light');
         document.body.classList.toggle('dark-theme', newTheme === 'dark');
-        localStorage.setItem('theme', newTheme); // Zapisuje wybrany motyw
-    } else if (event.target.id === 'language') {
-        currentLanguage = event.target.value;
-        localStorage.setItem('language', currentLanguage); // Zapisuje wybrany język
-        renderHomePage(currentLanguage); // Przeładowuje stronę główną
-        renderSettings(currentLanguage); // Przeładowuje ustawienia
-        renderMenu(currentLanguage); // Przeładowuje menu
+        localStorage.setItem('theme', newTheme); // Zapisanie wybranego motywu
     }
+});
+
+// Ustawienie motywu na podstawie localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.add(`${savedTheme}-theme`);
 });
