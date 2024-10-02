@@ -1,4 +1,4 @@
-// Obiekt z tłumaczeniami dla różnych języków
+// Obiekt z tłumaczeniami
 const translations = {
     pl: {
         homeTitle: "Strona Główna",
@@ -37,15 +37,3 @@ const translations = {
         passwordPlaceholder: "Password"
     }
 };
-
-// Funkcja do ustawienia aktualnego języka
-let currentLanguage = localStorage.getItem('language') || 'pl';
-
-// Funkcja do zmiany języka
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    localStorage.setItem('language', lang);
-    renderHomePage(lang);
-    renderSettings(lang);
-    renderMenu(lang);
-}
