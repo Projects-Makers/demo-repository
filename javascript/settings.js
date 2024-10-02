@@ -1,4 +1,4 @@
-// Renderuje ustawienia na podstawie wybranego języka
+// Funkcja do renderowania ustawień
 function renderSettings(lang) {
     const tresc = document.getElementById('tresc');
     tresc.innerHTML = `
@@ -7,8 +7,8 @@ function renderSettings(lang) {
             <div class="setting-item">
                 <label for="theme">${translations[lang].themeLabel}</label>
                 <select id="theme">
-                    <option value="light">${translations[lang].lightTheme} ☀️</option>
-                    <option value="dark" ${localStorage.getItem('theme') === 'dark' ? 'selected' : ''}>${translations[lang].darkTheme} 🌙</option>
+                    <option value="light">${translations[lang].lightTheme} <span class="icon-sun">☀️</span></option>
+                    <option value="dark" ${localStorage.getItem('theme') === 'dark' ? 'selected' : ''}>${translations[lang].darkTheme} <span class="icon-moon">🌙</span></option>
                 </select>
             </div>
             <div class="setting-item">
@@ -21,3 +21,19 @@ function renderSettings(lang) {
         </div>
     `;
 }
+
+// Nasłuchiwacz zmiany ustawień
+document.addEventListener('change', function(event) {
+    if (event.target.id === 'theme') {
+        const newTheme = event.target.value;
+        document.body.classList.toggle('light-theme', newTheme === 'light');
+        document.body.classList.toggle('dark-theme', newTheme === 'dark');
+        localStorage.setItem('theme', newTheme); // Zapisanie wybranego motywu
+    } else if (event.target.id === 'language') {
+        currentLanguage = event.target.value;
+        localStorage.setItem('language', currentLanguage); // Zapisanie wybranego języka
+        renderHomePage(currentLanguage); // Ponowne renderowanie strony głównej
+        renderSettings(currentLanguage); // Ponowne renderowanie ustawień
+        renderMenu(currentLanguage); // Ponowne renderowanie menu
+    }
+});
