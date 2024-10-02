@@ -1,3 +1,4 @@
+// Obiekt z tłumaczeniami dla różnych języków
 const translations = {
     pl: {
         homeTitle: "Strona Główna",
@@ -12,11 +13,10 @@ const translations = {
         about: "O nas",
         gallery: "Galeria",
         contact: "Kontakt",
-        login: "Zaloguj się", // Dodane tłumaczenie
-        register: "Zarejestruj się", // Dodane tłumaczenie
-        usernamePlaceholder: "Nazwa użytkownika", // Placeholder dla nazwy użytkownika
-        passwordPlaceholder: "Hasło", // Placeholder dla hasła
-
+        login: "Zaloguj się",
+        register: "Zarejestruj się",
+        usernamePlaceholder: "Nazwa użytkownika",
+        passwordPlaceholder: "Hasło"
     },
     en: {
         homeTitle: "Home Page",
@@ -31,10 +31,21 @@ const translations = {
         about: "About Us",
         gallery: "Gallery",
         contact: "Contact",
-        login: "Log In", // Dodane tłumaczenie
-        register: "Register", // Dodane tłumaczenie
-        usernamePlaceholder: "Username", // Placeholder dla nazwy użytkownika
-        passwordPlaceholder: "Password", // Placeholder dla hasła
+        login: "Log In",
+        register: "Register",
+        usernamePlaceholder: "Username",
+        passwordPlaceholder: "Password"
     }
 };
 
+// Funkcja do ustawienia aktualnego języka
+let currentLanguage = localStorage.getItem('language') || 'pl';
+
+// Funkcja do zmiany języka
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    renderHomePage(lang);
+    renderSettings(lang);
+    renderMenu(lang);
+}
