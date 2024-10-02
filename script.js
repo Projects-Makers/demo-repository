@@ -95,8 +95,10 @@ function renderSettings(lang) {
 // Funkcja do renderowania treści w menu
 function renderMenu(lang) {
     const menuItems = document.querySelectorAll('#menu ul li');
-    menuItems[1].textContent = translations[lang].homeTitle; // Strona główna
-    menuItems[2].textContent = translations[lang].settingsTitle; // Ustawienia
+    menuItems[0].textContent = translations[lang].homeTitle; // Strona główna
+    menuItems[1].textContent = translations[lang].about; // O nas
+    menuItems[2].textContent = translations[lang].gallery; // Galeria
+    menuItems[3].textContent = translations[lang].settingsTitle; // Ustawienia
     document.getElementById('login').textContent = translations[lang].login; // Zaloguj się
 }
 
@@ -111,7 +113,7 @@ function loadLoginForm() {
                 <input type="password" name="password" placeholder="${translations[currentLanguage].passwordPlaceholder}" required>
                 <button type="submit">${translations[currentLanguage].login}</button>
             </form>
-            <p style="text-align: center;"><a href="#" id="registerLink">${translations[currentLanguage].register}</a></p>
+            <p style="text-align: center;"><a href="#" id="registerLink">Zarejestruj się</a></p>
         </div>
     `;
     document.getElementById('registerLink').addEventListener('click', loadRegisterForm);
@@ -128,7 +130,7 @@ function loadRegisterForm() {
                 <input type="password" name="password" placeholder="${translations[currentLanguage].passwordPlaceholder}" required>
                 <button type="submit">${translations[currentLanguage].register}</button>
             </form>
-            <p style="text-align: center;"><a href="#" id="loginLinkBack">${translations[currentLanguage].login}</a></p>
+            <p style="text-align: center;"><a href="#" id="loginLinkBack">Zaloguj się</a></p>
         </div>
     `;
     document.getElementById('loginLinkBack').addEventListener('click', loadLoginForm);
@@ -175,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Nasłuchiwacz kliknięcia w "Zaloguj się"
-document.getElementById('loginLink').addEventListener('click', function(event) {
+document.getElementById('login').addEventListener('click', function(event) {
     event.preventDefault(); // Zapobiega przeładowaniu strony
     loadLoginForm(); // Ładowanie formularza logowania
 });
