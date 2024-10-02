@@ -1,4 +1,4 @@
-// Ładuje formularz logowania
+// Funkcja do ładowania formularza logowania
 function loadLoginForm() {
     const tresc = document.getElementById('tresc');
     tresc.innerHTML = `
@@ -12,5 +12,11 @@ function loadLoginForm() {
             <p style="text-align: center;"><a href="#" id="registerLink">${translations[currentLanguage].register}</a></p>
         </div>
     `;
-    document.getElementById('registerLink').addEventListener('click', loadRegisterForm); // Obsługa kliknięcia w link rejestracji
+    document.getElementById('registerLink').addEventListener('click', loadRegisterForm);
 }
+
+// Nasłuchiwacz kliknięcia w "Zaloguj się"
+document.getElementById('login').addEventListener('click', function(event) {
+    event.preventDefault(); // Zapobiega przeładowaniu strony
+    loadLoginForm(); // Ładowanie formularza logowania
+});
