@@ -1,8 +1,8 @@
-// Funkcja do ładowania formularza logowania
+// Ładuje formularz logowania
 function loadLoginForm() {
     const tresc = document.getElementById('tresc');
-    tresc.innerHTML = 
-        `<div class="login-container">
+    tresc.innerHTML = `
+        <div class="login-container">
             <h2>${translations[currentLanguage].login}</h2>
             <form id="loginForm" method="POST" action="login.php">
                 <input type="text" name="username" placeholder="${translations[currentLanguage].usernamePlaceholder}" required>
@@ -10,12 +10,7 @@ function loadLoginForm() {
                 <button type="submit">${translations[currentLanguage].login}</button>
             </form>
             <p style="text-align: center;"><a href="#" id="registerLink">${translations[currentLanguage].register}</a></p>
-        </div>`;
-    document.getElementById('registerLink').addEventListener('click', loadRegisterForm);
+        </div>
+    `;
+    document.getElementById('registerLink').addEventListener('click', loadRegisterForm); // Obsługa kliknięcia w link rejestracji
 }
-
-// Nasłuchiwacz kliknięcia w "Zaloguj się"
-document.getElementById('login').addEventListener('click', function(event) {
-    event.preventDefault(); // Zapobiega przeładowaniu strony
-    loadLoginForm(); // Ładowanie formularza logowania
-});
