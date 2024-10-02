@@ -10,3 +10,14 @@ function toggleMenu() {
         hamburger.style.display = 'none';
     }
 }
+// Nasłuchiwacz kliknięcia w "Strona główna"
+document.getElementById('home').addEventListener('click', function() {
+    renderHomePage(currentLanguage); // Renderowanie treści na stronie głównej
+    toggleMenu();  // Zamknięcie menu po kliknięciu w "Strona główna"
+});
+
+// Nasłuchiwacz kliknięcia w "Ustawienia"
+document.getElementById('settings').addEventListener('click', function() {
+    renderSettings(currentLanguage);
+    toggleMenu();  // Zamknięcie menu po kliknięciu w "Ustawienia"
+});
