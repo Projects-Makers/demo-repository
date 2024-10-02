@@ -1,7 +1,6 @@
 // Funkcja do ładowania formularza rejestracji
 function loadRegisterForm() {
     const tresc = document.getElementById('tresc');
-    // Renderowanie formularza rejestracji
     tresc.innerHTML = 
         `<div class="login-container">
             <h2>${translations[currentLanguage].register}</h2>
@@ -12,6 +11,5 @@ function loadRegisterForm() {
             </form>
             <p style="text-align: center;"><a href="#" id="loginLinkBack">${translations[currentLanguage].login}</a></p>
         </div>`;
-    // Dodanie nasłuchiwacza do powrotu do formularza logowania
     document.getElementById('loginLinkBack').addEventListener('click', loadLoginForm);
 }
