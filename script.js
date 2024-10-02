@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Nasłuchiwacz kliknięcia w "Zaloguj się"
-document.getElementById('login').addEventListener('click', function(event) {
+document.getElementById('loginLink').addEventListener('click', function(event) {
     event.preventDefault(); // Zapobiega przeładowaniu strony
     loadLoginForm(); // Ładowanie formularza logowania
 });
