@@ -95,8 +95,8 @@ function renderSettings(lang) {
 // Funkcja do renderowania treści w menu
 function renderMenu(lang) {
     const menuItems = document.querySelectorAll('#menu ul li');
-    menuItems[0].textContent = translations[lang].homeTitle; // Strona główna
-    menuItems[3].textContent = translations[lang].settingsTitle; // Ustawienia
+    menuItems[1].textContent = translations[lang].homeTitle; // Strona główna
+    menuItems[2].textContent = translations[lang].settingsTitle; // Ustawienia
     document.getElementById('login').textContent = translations[lang].login; // Zaloguj się
 }
 
